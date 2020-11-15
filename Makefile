@@ -8,3 +8,6 @@ stop:
 
 exec-backend:
 	$(DC) exec backend bash
+
+install:
+	$(DC) run --rm backend bash -c "npm install"
