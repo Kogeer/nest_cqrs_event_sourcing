@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  backend:
+    tty: true
+    build:
+      dockerfile: build/backend/Dockerfile
+      target: base
+      context: .
+    container_name: nest_cqrs_backend
+    volumes:
+    - ./backend:/home/node/app
+    ports:
+    - 8000:8000
+    restart: always
+    environment:
+      - BACKEND_URL=http://localhost:8000
+      - DB_HOST=mysql
+      - DB_USERNAME=nest_cqrs
+      - DB_PASSWORD=nest_cqrs
+      - DB_DATABASE=nest_cqrs
+
+  database:
+    image: mysql:latest
+    command: --default-authentication-plugin=mysql_native_password
+    container_name: nest_cqrs_db
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+      - MYSQL_USER=nest_cqrs
+      - MYSQL_DATABASE=nest_cqrs
+      - MYSQL_PASSWORD=nest_cqrs
