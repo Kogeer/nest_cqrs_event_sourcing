@@ -1,0 +1,1 @@
+**This is practice for NestJS with CQRS and event sourcing**
