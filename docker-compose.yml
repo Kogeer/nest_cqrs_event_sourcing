@@ -19,7 +19,7 @@ services:
       - DB_USERNAME=nest_cqrs
       - DB_PASSWORD=nest_cqrs
       - DB_DATABASE=nest_cqrs
-    command: "npm start"
+    command: "npm run start:dev"
 
   database:
     image: mysql:latest

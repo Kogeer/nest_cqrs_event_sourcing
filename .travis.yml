@@ -1,0 +1,16 @@
+language: node_js
+node_js:
+  - 12
+cache: npm
+
+before_install:
+  - cd backend/
+
+if: branch = master
+
+jobs:
+  include:
+    - stage: install
+      script: npm install
+    - stage: test
+      script: npm test
