@@ -8,3 +8,6 @@
 
 **Enter to backend container**  
 ``make exec-backend``
+
+**Migrate in backend container**  
+``npm run typeorm migration:run``

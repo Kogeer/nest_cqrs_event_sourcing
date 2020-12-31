@@ -29,6 +29,9 @@ module.exports = function (options) {
       new webpack.HotModuleReplacementPlugin(),
       new webpack.WatchIgnorePlugin(ignorePaths),
       new StartServerPlugin({ name: options.output.filename }),
+      new CopyPlugin({
+        patterns: [{ from: './src/**/Entities/*.ts', to: '' }],
+      }),
     ],
   };
 };
